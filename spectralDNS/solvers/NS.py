@@ -68,7 +68,7 @@ def get_context():
                                   'data': {'0': {'U': [U_hat]}}},
                       results={'space': VT,
                                'data': {'U': [U], 'P': [P]}})
-
+    # print(locals().keys())
     return config.AttributeDict(locals())
 
 class NSFile(HDF5File):

@@ -46,6 +46,7 @@ def get_solver(update=None,
     config.params.update(vars(args))
 
     try:
+        print('.'.join(('spectralDNS.solvers',config.params.solver)))
         solver = importlib.import_module('.'.join(('spectralDNS.solvers',
                                                    config.params.solver)))
     except AttributeError:

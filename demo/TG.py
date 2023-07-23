@@ -35,6 +35,7 @@ def initialize2(solver, context):
     solver.set_velocity(**context)
     solver.cross2(context.W_hat, context.K, context.U_hat)
 
+print("begin")
 k = []
 w = []
 im1 = None
@@ -140,8 +141,10 @@ if __name__ == "__main__":
     config.triplyperiodic.add_argument("--plot_step", type=int, default=2)
     config.triplyperiodic.add_argument("--N", default=[32, 32, 32], nargs=3,
                                        help="Mesh size. Trumps M.")
+    print(1)
     sol = get_solver(update=update, regression_test=regression_test,
                      mesh="triplyperiodic")
+    print(2)
 
     context = sol.get_context()
 
@@ -155,7 +158,10 @@ if __name__ == "__main__":
         sol.get_pressure(**c)
         sol.get_curl(**c)
 
+    print(3)
     context.hdf5file.update_components = update_components
+    print(4)
 
     initialize(sol, context)
+    print(5)
     solve(sol, context)
